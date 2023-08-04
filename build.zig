@@ -25,6 +25,7 @@ pub fn build(b: *std.Build) void {
 
 const src_files = .{
     "IMG.c",
+    "IMG_ImageIO.m",
     "IMG_WIC.c",
     "IMG_avif.c",
     "IMG_bmp.c",
