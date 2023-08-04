@@ -14,7 +14,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    lib.addIncludePath(.{ .path = "../SDL/zig-out/include/SDL2" });
+    lib.addIncludePath(.{ .cwd_relative = "lib/SDL/zig-out/include/SDL2" });
     lib.linkLibrary(zig_sdl.artifact("SDL2"));
 
     lib.addCSourceFiles(&src_files, &.{});
