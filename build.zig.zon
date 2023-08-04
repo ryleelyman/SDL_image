@@ -1,0 +1,10 @@
+.{
+    .name = "seamstress_SDL_img",
+    .version = "2.6.3",
+    .dependencies = .{
+        .SDL = .{
+            .url = "https://github.com/ryleelyman/SDL/archive/20e2af86b6f38bfd30b6c968aa999b5ded626222.tar.gz",
+            .hash = "1220bf3803a77c15cc87d396cf7407642799a994f0279d4baeeb5ce973a57981a6a5",
+        },
+    },
+}

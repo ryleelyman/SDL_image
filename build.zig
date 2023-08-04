@@ -10,13 +10,12 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    // const zig_sdl = b.dependency("SDL", .{
-    //     .target = target,
-    //     .optimize = optimize,
-    // });
-    // _ = zig_sdl;
-    lib.addIncludePath(.{ .cwd_relative = "../SDL/zig-out/include/SDL2" });
-    // lib.linkLibrary(zig_sdl.artifact("SDL2"));
+    const zig_sdl = b.dependency("SDL", .{
+        .target = target,
+        .optimize = optimize,
+    });
+    lib.addIncludePath(.{ .path = "../SDL/zig-out/include/SDL2" });
+    lib.linkLibrary(zig_sdl.artifact("SDL2"));
 
     lib.addCSourceFiles(&src_files, &.{});
     lib.linkLibC();
