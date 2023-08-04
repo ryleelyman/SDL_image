@@ -15,8 +15,11 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     lib.addIncludePath(.{ .cwd_relative = "lib/SDL/zig-out/include/SDL2" });
+    lib.addIncludePath(.{ .cwd_relative = "../SDL/zig-out/include/SDL2" });
     lib.linkLibrary(zig_sdl.artifact("SDL2"));
+    lib.linkSystemLibrary("libpng16");
 
+    lib.defineCMacro("LOAD_PNG", "1");
     lib.addCSourceFiles(&src_files, &.{});
     lib.linkLibC();
     lib.installHeader("SDL_image.h", "SDL2_image/SDL_image.h");
